@@ -1,0 +1,194 @@
+:root {
+    --wilted-green: #24382a;
+    --wilted-green-deep: #121d16;
+    --wilted-leaf: #38573d;
+    --wilted-pink: #c96a9e;
+    --wilted-magenta: #9d2465;
+    --wilted-yellow: #c7bf45;
+    --wilted-shadow: #050706;
+}
+
+/* Page-specific accent override */
+body.role-killer {
+    --accent: var(--wilted-pink);
+    background:
+    radial-gradient(circle at 20% 10%, rgba(201, 106, 158, 0.18), transparent 22rem),
+    radial-gradient(circle at 85% 25%, rgba(56, 87, 61, 0.35), transparent 28rem),
+    radial-gradient(circle at 50% 100%, rgba(157, 36, 101, 0.14), transparent 30rem),
+    linear-gradient(180deg, #070a07, #11160f 45%, #080908);
+}
+
+/* Main card: soft floral body + rotten plant horror */
+.page-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201, 106, 158, 0.45);
+    background:
+    radial-gradient(circle at top left, rgba(201, 106, 158, 0.2), transparent 19rem),
+    radial-gradient(circle at bottom right, rgba(199, 191, 69, 0.12), transparent 20rem),
+    linear-gradient(135deg, rgba(36, 56, 42, 0.96), rgba(18, 29, 22, 0.96));
+    box-shadow:
+    0 0 40px rgba(201, 106, 158, 0.1),
+    0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* Big ghostly vines behind the content */
+.page-card::before,
+.page-card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    width: 26rem;
+    height: 26rem;
+    border: 1.6rem solid rgba(56, 87, 61, 0.34);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    filter: blur(0.2px);
+}
+
+.page-card::before {
+    top: -8rem;
+    right: -7rem;
+    transform: rotate(35deg);
+}
+
+.page-card::after {
+    bottom: -11rem;
+    left: -8rem;
+    transform: rotate(210deg);
+}
+
+.page-header,
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title styling */
+.page-header h1 {
+    color: #f5c1dc;
+    text-shadow:
+    0 0 12px rgba(201, 106, 158, 0.35),
+    3px 3px 0 rgba(0, 0, 0, 0.45);
+}
+
+.page-header h1::after {
+    content: "THE WILTED";
+    display: block;
+    width: fit-content;
+    margin-top: 0.85rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid rgba(199, 191, 69, 0.55);
+    border-radius: 999px;
+    color: var(--wilted-yellow);
+    background: rgba(5, 7, 6, 0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.28em;
+    text-shadow: none;
+}
+
+/* Metadata pills */
+.eyebrow span,
+.tags li {
+    border-color: rgba(201, 106, 158, 0.38);
+    color: #f1b4d3;
+    background:
+    linear-gradient(90deg, rgba(157, 36, 101, 0.24), rgba(56, 87, 61, 0.18));
+}
+
+/* Description area */
+.page-description {
+    color: #e7c6d8;
+}
+
+/* Headers inside the page */
+.page-content h2,
+.page-content h3 {
+    color: var(--wilted-yellow);
+    text-shadow: 0 0 10px rgba(199, 191, 69, 0.18);
+}
+
+.page-content h2 {
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed rgba(201, 106, 158, 0.35);
+}
+
+/* Links */
+.page-content a {
+    color: #ffaad7;
+    text-decoration-color: rgba(255, 170, 215, 0.45);
+    text-decoration-thickness: 2px;
+}
+
+.page-content a:hover {
+    color: var(--wilted-yellow);
+}
+
+/* Tables, good for ability kit */
+.page-content table {
+    border: 1px solid rgba(201, 106, 158, 0.32);
+    background: rgba(5, 7, 6, 0.28);
+}
+
+.page-content th {
+    color: var(--wilted-yellow);
+    background:
+    linear-gradient(90deg, rgba(157, 36, 101, 0.35), rgba(36, 56, 42, 0.7));
+}
+
+.page-content td {
+    background: rgba(18, 29, 22, 0.45);
+}
+
+/* Lists feel like thorn notes */
+.page-content li::marker {
+    color: var(--wilted-pink);
+}
+
+/* Missing links look like corrupted/unwritten lore */
+.missing-link {
+    color: #ff7a9e;
+    border-bottom: 1px dashed #ff7a9e;
+    text-shadow: 0 0 8px rgba(255, 122, 158, 0.3);
+}
+
+/* Optional portrait styling if you add an image to the Markdown */
+.page-content img {
+    border: 2px solid rgba(201, 106, 158, 0.45);
+    box-shadow:
+    0 0 0 6px rgba(56, 87, 61, 0.22),
+    0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Mobile cleanup */
+@media (max-width: 850px) {
+    .page-card::before,
+    .page-card::after {
+        opacity: 0.35;
+    }
+
+    .page-header h1::after {
+        letter-spacing: 0.18em;
+    }
+}
+.page-card::before {
+    transform:
+    translate(
+        calc(var(--vine-x, 0) * -18px),
+              calc(var(--vine-y, 0) * -12px)
+    )
+    rotate(35deg);
+    transition: transform 120ms ease-out;
+}
+
+.page-card::after {
+    transform:
+    translate(
+        calc(var(--vine-x, 0) * 16px),
+              calc(var(--vine-y, 0) * 14px)
+    )
+    rotate(210deg);
+    transition: transform 120ms ease-out;
+}

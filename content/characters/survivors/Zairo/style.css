@@ -1,0 +1,355 @@
+:root {
+    --alien-bg-dark: #070a12;
+    --alien-bg-mid: #121827;
+    --alien-lavender: #b990ff;
+    --alien-purple: #7f55d8;
+    --alien-pink: #f47bd8;
+    --alien-pink-soft: #ffc2ee;
+    --alien-cyan: #dffcff;
+    --alien-cyan-deep: #8cecff;
+    --alien-gray: #687080;
+    --alien-gray-dark: #2d3342;
+    --alien-white: #f8ffff;
+    --alien-black: #04060a;
+}
+
+/* Soft alien-tech survivor page */
+body.role-survivor {
+    --accent: var(--alien-lavender);
+
+    background:
+    radial-gradient(circle at 18% 16%, rgba(185, 144, 255, 0.22), transparent 19rem),
+    radial-gradient(circle at 82% 20%, rgba(244, 123, 216, 0.16), transparent 23rem),
+    radial-gradient(circle at 50% 100%, rgba(140, 236, 255, 0.16), transparent 34rem),
+    linear-gradient(180deg, #05070e 0%, #111827 50%, #04060a 100%);
+}
+
+.page-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(185, 144, 255, 0.5);
+    background:
+    radial-gradient(circle at var(--alien-light-x, 28%) var(--alien-light-y, 14%), rgba(223, 252, 255, 0.14), transparent 22rem),
+    linear-gradient(135deg, rgba(185, 144, 255, 0.16), transparent 24rem),
+    linear-gradient(225deg, rgba(244, 123, 216, 0.14), transparent 22rem),
+    rgba(10, 13, 22, 0.95);
+    box-shadow:
+    0 0 28px rgba(185, 144, 255, 0.2),
+    0 0 72px rgba(140, 236, 255, 0.1),
+    0 28px 90px rgba(0, 0, 0, 0.62);
+}
+
+/* Screen / armor texture */
+.page-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background:
+    linear-gradient(90deg, rgba(223, 252, 255, 0.08) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(0deg, rgba(223, 252, 255, 0.06) 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(circle at 40% 30%, rgba(244, 123, 216, 0.08), transparent 20rem);
+}
+
+/* Antenna / orb decoration */
+.page-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    right: 2rem;
+    top: 2rem;
+    width: 12rem;
+    height: 12rem;
+    pointer-events: none;
+
+    background:
+    /* antenna wires */
+    linear-gradient(65deg, transparent 48%, rgba(223, 252, 255, 0.7) 49%, rgba(223, 252, 255, 0.7) 51%, transparent 52%)
+    2.8rem 1.1rem / 4.2rem 4.2rem no-repeat,
+    linear-gradient(-65deg, transparent 48%, rgba(223, 252, 255, 0.7) 49%, rgba(223, 252, 255, 0.7) 51%, transparent 52%)
+    6.2rem 1.1rem / 4.2rem 4.2rem no-repeat,
+
+    /* antenna orbs */
+    radial-gradient(circle at 38% 35%, var(--alien-pink-soft), var(--alien-pink) 42%, var(--alien-purple) 68%, transparent 70%)
+    2.4rem 0.4rem / 2rem 2rem no-repeat,
+    radial-gradient(circle at 38% 35%, var(--alien-pink-soft), var(--alien-pink) 42%, var(--alien-purple) 68%, transparent 70%)
+    8rem 0.4rem / 2rem 2rem no-repeat,
+
+    /* center gem */
+    radial-gradient(circle at 38% 35%, var(--alien-pink-soft), var(--alien-pink) 40%, var(--alien-purple) 65%, transparent 68%)
+    5.15rem 5rem / 2.1rem 2.1rem no-repeat,
+
+    /* armor plate */
+    linear-gradient(var(--alien-gray), var(--alien-gray))
+    3.8rem 4rem / 4.8rem 4.2rem no-repeat,
+    linear-gradient(var(--alien-gray-dark), var(--alien-gray-dark))
+    3.45rem 3.65rem / 5.5rem 4.9rem no-repeat,
+
+    /* glow backing */
+    radial-gradient(circle, rgba(185, 144, 255, 0.25) 0 55%, transparent 58%)
+    1.3rem 1.5rem / 9rem 9rem no-repeat;
+
+    filter:
+    drop-shadow(0 0 12px rgba(185, 144, 255, 0.4))
+    drop-shadow(0 0 18px rgba(244, 123, 216, 0.2))
+    drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
+
+    transform:
+    translate(
+        calc(var(--alien-deco-x, 0) * 1px),
+              calc(var(--alien-deco-y, 0) * 1px)
+    )
+    rotate(4deg);
+
+    transition: transform 130ms ease-out;
+}
+
+.page-header,
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header h1 {
+    color: var(--alien-white);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    text-shadow:
+    3px 0 0 rgba(185, 144, 255, 0.72),
+    -2px 0 0 rgba(244, 123, 216, 0.58),
+    0 0 18px rgba(223, 252, 255, 0.28),
+    3px 3px 0 rgba(0, 0, 0, 0.55);
+}
+
+/* Tag section */
+.page-header h1::after {
+    content: "Lorem ipsum dolor sit amet";
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 0.9rem;
+    padding: 0.45rem 0.8rem;
+    border: 2px solid var(--alien-cyan);
+    border-radius: 999px;
+    color: var(--alien-white);
+    background:
+    linear-gradient(90deg, rgba(185, 144, 255, 0.48), rgba(244, 123, 216, 0.32));
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+    line-height: 1.45;
+    text-shadow: none;
+    box-shadow:
+    0 0 14px rgba(185, 144, 255, 0.32),
+    inset 0 0 16px rgba(255, 255, 255, 0.08);
+}
+
+.eyebrow span,
+.tags li {
+    border: 1px solid rgba(223, 252, 255, 0.5);
+    color: var(--alien-white);
+    background:
+    linear-gradient(90deg, rgba(185, 144, 255, 0.35), rgba(244, 123, 216, 0.18));
+    box-shadow: 0 0 12px rgba(185, 144, 255, 0.15);
+}
+
+.page-description {
+    color: #e9faff;
+    font-weight: 700;
+}
+
+.page-content h2,
+.page-content h3 {
+    color: var(--alien-white);
+    font-weight: 950;
+    text-transform: uppercase;
+    text-shadow:
+    2px 0 0 rgba(185, 144, 255, 0.75),
+    -2px 0 0 rgba(244, 123, 216, 0.58);
+}
+
+.page-content h2 {
+    padding-bottom: 0.55rem;
+    border-bottom: 0.32rem solid var(--alien-cyan);
+}
+
+.page-content p,
+.page-content li {
+    color: #f2fdff;
+    font-weight: 650;
+}
+
+.page-content li::marker {
+    color: var(--alien-pink);
+}
+
+.page-content a {
+    color: var(--alien-pink-soft);
+    font-weight: 900;
+    text-decoration-color: var(--alien-cyan);
+    text-decoration-thickness: 2px;
+}
+
+.page-content a:hover {
+    color: var(--alien-cyan);
+    text-shadow: 0 0 10px rgba(223, 252, 255, 0.65);
+}
+
+.page-content table {
+    overflow: hidden;
+    border: 2px solid rgba(223, 252, 255, 0.55);
+    background: rgba(4, 6, 10, 0.52);
+    box-shadow:
+    0 0 18px rgba(185, 144, 255, 0.18),
+    0 0 32px rgba(244, 123, 216, 0.1);
+}
+
+.page-content th {
+    color: var(--alien-white);
+    background:
+    linear-gradient(90deg, var(--alien-purple), var(--alien-gray-dark));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.page-content td {
+    color: #f2fdff;
+    background:
+    linear-gradient(90deg, rgba(185, 144, 255, 0.1), rgba(244, 123, 216, 0.07));
+}
+
+.page-content tr:hover td {
+    background:
+    linear-gradient(90deg, rgba(185, 144, 255, 0.2), rgba(244, 123, 216, 0.14));
+}
+
+.page-content img {
+    border: 0.45rem solid var(--alien-cyan);
+    border-radius: 22px;
+    background: var(--alien-black);
+    box-shadow:
+    0 0 0 3px var(--alien-lavender),
+    0 0 26px rgba(185, 144, 255, 0.38),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.missing-link {
+    color: #ffc2ee;
+    border-bottom: 2px dashed var(--alien-cyan);
+    font-weight: 900;
+}
+
+/* JS effects */
+.alien-orb,
+.alien-scan-ring,
+.alien-signal-line {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.alien-orb {
+    translate: -50% -50%;
+    width: var(--orb-size);
+    height: var(--orb-size);
+    border-radius: 999px;
+    background:
+    radial-gradient(circle at 35% 30%, var(--alien-pink-soft), var(--alien-pink) 42%, var(--alien-purple) 72%, transparent 75%);
+    filter:
+    drop-shadow(0 0 8px rgba(244, 123, 216, 0.7))
+    drop-shadow(0 0 14px rgba(185, 144, 255, 0.45));
+    animation: alien-orb-float 900ms ease-out forwards;
+}
+
+.alien-scan-ring {
+    translate: -50% -50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid rgba(223, 252, 255, 0.85);
+    border-radius: 999px;
+    box-shadow:
+    0 0 16px rgba(185, 144, 255, 0.42),
+    inset 0 0 14px rgba(244, 123, 216, 0.18);
+    animation: alien-scan-pulse 620ms ease-out forwards;
+}
+
+.alien-signal-line {
+    height: 2px;
+    width: var(--signal-width);
+    left: var(--signal-left);
+    top: var(--signal-top);
+    transform-origin: left center;
+    transform: rotate(var(--signal-angle));
+    background:
+    linear-gradient(90deg, transparent, var(--alien-cyan), var(--alien-pink), transparent);
+    filter: drop-shadow(0 0 8px rgba(223, 252, 255, 0.7));
+    animation: alien-signal-fade 420ms ease-out forwards;
+}
+
+@keyframes alien-orb-float {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.2);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+        translate(var(--orb-x), var(--orb-y))
+        scale(1);
+    }
+}
+
+@keyframes alien-scan-pulse {
+    from {
+        opacity: 0.9;
+        transform: scale(0.2);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(2.1);
+    }
+}
+
+@keyframes alien-signal-fade {
+    from {
+        opacity: 1;
+        scale: 0.2 1;
+    }
+
+    to {
+        opacity: 0;
+        scale: 1 1;
+    }
+}
+
+@media (max-width: 850px) {
+    .page-card::after {
+        opacity: 0.3;
+        right: -3rem;
+    }
+
+    .page-header h1::after {
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-card::after {
+        transition: none;
+    }
+
+    .alien-orb,
+    .alien-scan-ring,
+    .alien-signal-line {
+        display: none;
+    }
+}

@@ -1,0 +1,293 @@
+:root {
+    --cowboy-sand: #d7c087;
+    --cowboy-cream: #f1e8b8;
+    --cowboy-shirt: #e6edac;
+    --cowboy-leather: #6b5139;
+    --cowboy-leather-dark: #2d2119;
+    --cowboy-denim: #2f4d58;
+    --cowboy-denim-dark: #182b31;
+    --cowboy-gold: #b89457;
+    --cowboy-shadow: #090604;
+    --cowboy-ink: #1b1510;
+    --cowboy-red-dust: #8c4427;
+}
+
+/* Dusty western survivor page */
+body.role-survivor {
+    --accent: var(--cowboy-gold);
+
+    background:
+    radial-gradient(circle at 20% 10%, rgba(241, 232, 184, 0.2), transparent 20rem),
+    radial-gradient(circle at 80% 25%, rgba(140, 68, 39, 0.22), transparent 24rem),
+    linear-gradient(180deg, #1a1109 0%, #382519 50%, #0c0805 100%);
+}
+
+/* Main card */
+.page-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(184, 148, 87, 0.55);
+    background:
+    radial-gradient(circle at var(--cowboy-light-x, 25%) var(--cowboy-light-y, 10%), rgba(241, 232, 184, 0.18), transparent 22rem),
+    linear-gradient(135deg, rgba(107, 81, 57, 0.3), transparent 22rem),
+    linear-gradient(225deg, rgba(47, 77, 88, 0.22), transparent 24rem),
+    rgba(25, 18, 13, 0.96);
+    box-shadow:
+    0 0 28px rgba(184, 148, 87, 0.16),
+    0 28px 90px rgba(0, 0, 0, 0.62);
+}
+
+/* Paper grain / sketchy overlay */
+.page-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background:
+    repeating-linear-gradient(
+        95deg,
+        transparent 0,
+        transparent 10px,
+        rgba(241, 232, 184, 0.08) 11px,
+                              transparent 12px
+    ),
+    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.06), transparent 18rem);
+}
+
+/* Rope / lasso decoration */
+.page-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    right: -5rem;
+    top: 2rem;
+    width: 18rem;
+    height: 18rem;
+    border: 0.65rem double rgba(184, 148, 87, 0.5);
+    border-left-color: transparent;
+    border-bottom-color: rgba(184, 148, 87, 0.25);
+    border-radius: 50%;
+    filter:
+    drop-shadow(0 0 8px rgba(184, 148, 87, 0.25))
+    drop-shadow(0 18px 24px rgba(0, 0, 0, 0.28));
+    transform:
+    translate(
+        calc(var(--cowboy-rope-x, 0) * 1px),
+              calc(var(--cowboy-rope-y, 0) * 1px)
+    )
+    rotate(-22deg);
+    transition: transform 140ms ease-out;
+}
+
+.page-header,
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title */
+.page-header h1 {
+    color: var(--cowboy-cream);
+    font-family: Georgia, "Times New Roman", serif;
+    letter-spacing: -0.045em;
+    text-shadow:
+    2px 2px 0 var(--cowboy-shadow),
+    0 0 18px rgba(184, 148, 87, 0.24);
+}
+
+.page-header h1::after {
+    content: "STARTING KILLER";
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 0.85rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(184, 148, 87, 0.65);
+    border-radius: 999px;
+    color: var(--cowboy-sand);
+    background:
+    linear-gradient(90deg, rgba(107, 81, 57, 0.55), rgba(47, 77, 88, 0.28));
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-shadow: none;
+}
+
+/* Metadata */
+.eyebrow span,
+.tags li {
+    border-color: rgba(184, 148, 87, 0.45);
+    color: var(--cowboy-sand);
+    background:
+    linear-gradient(90deg, rgba(107, 81, 57, 0.38), rgba(47, 77, 88, 0.22));
+}
+
+/* Description */
+.page-description {
+    color: #e8d9aa;
+    font-weight: 600;
+}
+
+/* Section headers */
+.page-content h2,
+.page-content h3 {
+    color: var(--cowboy-cream);
+    font-family: Georgia, "Times New Roman", serif;
+    text-shadow: 2px 2px 0 var(--cowboy-shadow);
+}
+
+.page-content h2 {
+    padding-bottom: 0.55rem;
+    border-bottom: 2px dashed rgba(184, 148, 87, 0.5);
+}
+
+/* Body text */
+.page-content p,
+.page-content li {
+    color: #f2e8c8;
+}
+
+.page-content li::marker {
+    color: var(--cowboy-gold);
+}
+
+/* Links */
+.page-content a {
+    color: #f6cf7d;
+    font-weight: 800;
+    text-decoration-color: rgba(246, 207, 125, 0.45);
+    text-decoration-thickness: 2px;
+}
+
+.page-content a:hover {
+    color: #fff0b8;
+    text-shadow: 0 0 10px rgba(246, 207, 125, 0.45);
+}
+
+/* Tables */
+.page-content table {
+    border: 2px solid rgba(184, 148, 87, 0.44);
+    background: rgba(10, 6, 4, 0.4);
+}
+
+.page-content th {
+    color: var(--cowboy-cream);
+    background:
+    linear-gradient(90deg, var(--cowboy-leather), var(--cowboy-denim-dark));
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.page-content td {
+    color: #f1e4bf;
+    background:
+    linear-gradient(90deg, rgba(107, 81, 57, 0.18), rgba(47, 77, 88, 0.12));
+}
+
+.page-content tr:hover td {
+    background:
+    linear-gradient(90deg, rgba(184, 148, 87, 0.18), rgba(47, 77, 88, 0.18));
+}
+
+/* Images */
+.page-content img {
+    border: 0.45rem solid var(--cowboy-sand);
+    border-radius: 18px;
+    background: var(--cowboy-shadow);
+    box-shadow:
+    0 0 0 3px var(--cowboy-leather-dark),
+    0 22px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Missing links */
+.missing-link {
+    color: #ffb06f;
+    border-bottom: 2px dashed #ffb06f;
+    font-weight: 800;
+}
+
+/* Click dust from script.js */
+.cowboy-dust {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    translate: -50% -50%;
+    width: var(--dust-size);
+    height: var(--dust-size);
+    border-radius: 999px;
+    background:
+    radial-gradient(circle, rgba(241, 232, 184, 0.75), rgba(140, 68, 39, 0.12) 60%, transparent 70%);
+    filter: blur(0.5px);
+    animation: cowboy-dust-drift 900ms ease-out forwards;
+}
+
+@keyframes cowboy-dust-drift {
+    0% {
+        opacity: 0;
+        transform:
+        translate(0, 0)
+        scale(0.2);
+    }
+
+    20% {
+        opacity: 0.85;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+        translate(var(--dust-x), var(--dust-y))
+        scale(1.6);
+    }
+}
+
+/* Tiny wanted-poster flash when clicking */
+.cowboy-flash {
+    position: fixed;
+    z-index: 9998;
+    pointer-events: none;
+    translate: -50% -50%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid rgba(246, 207, 125, 0.75);
+    border-radius: 50%;
+    animation: cowboy-flash-pop 420ms ease-out forwards;
+}
+
+@keyframes cowboy-flash-pop {
+    from {
+        opacity: 0.8;
+        transform: scale(0.25);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+}
+
+@media (max-width: 850px) {
+    .page-card::after {
+        opacity: 0.35;
+        right: -9rem;
+    }
+
+    .page-header h1::after {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cowboy-dust,
+    .cowboy-flash {
+        display: none;
+    }
+
+    .page-card::after {
+        transition: none;
+    }
+}

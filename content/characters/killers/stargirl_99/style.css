@@ -1,0 +1,340 @@
+:root {
+    --star-red: #b81308;
+    --star-red-dark: #3b0307;
+    --star-hot-pink: #ff2bd6;
+    --star-pink: #d926b9;
+    --star-light-pink: #ff7ce7;
+    --star-purple: #681387;
+    --star-dark-purple: #70106f;
+    --star-cross-magenta: #c51bad;
+    --star-cyan: #27f4ff;
+    --star-cyan-deep: #087e8b;
+    --star-orange: #d47a34;
+    --star-white: #fff7fb;
+    --star-black: #050006;
+}
+
+/* Full page vibe: loud, digital, dangerous */
+body.role-killer {
+    --accent: var(--star-hot-pink);
+
+    background:
+    radial-gradient(circle at 20% 18%, rgba(255, 43, 214, 0.22), transparent 18rem),
+    radial-gradient(circle at 85% 20%, rgba(39, 244, 255, 0.18), transparent 20rem),
+    radial-gradient(circle at 50% 100%, rgba(184, 19, 8, 0.45), transparent 32rem),
+    linear-gradient(180deg, #160003 0%, #4d0505 45%, #080003 100%);
+}
+
+/* Main card */
+.page-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 43, 214, 0.55);
+    background:
+    linear-gradient(135deg, rgba(255, 43, 214, 0.16), transparent 24rem),
+    linear-gradient(225deg, rgba(39, 244, 255, 0.16), transparent 24rem),
+    radial-gradient(circle at center, rgba(184, 19, 8, 0.45), transparent 32rem),
+    rgba(14, 0, 10, 0.94);
+    box-shadow:
+    0 0 24px rgba(255, 43, 214, 0.26),
+    0 0 60px rgba(39, 244, 255, 0.12),
+    0 28px 90px rgba(0, 0, 0, 0.65);
+}
+
+/* Glitch scanline overlay */
+.page-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background:
+    repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 7px,
+        rgba(255, 255, 255, 0.08) 8px,
+                              transparent 9px
+    );
+}
+
+/*
+ * Floating streamer squares.
+ *
+ * The top-right dark square is meant to match her eyepatch:
+ * - dark magenta-purple fill
+ * - black border
+ * - thin pink/magenta X
+ * - tilted slightly
+ */
+.page-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 2rem;
+    right: 2rem;
+    width: 11rem;
+    height: 11rem;
+    pointer-events: none;
+
+    background:
+    /* thin light-pink highlight part of the X */
+    linear-gradient(45deg, transparent 48%, var(--star-light-pink) 49%, var(--star-light-pink) 51%, transparent 52%)
+    5.3rem 4.9rem / 2.9rem 2.9rem no-repeat,
+    linear-gradient(-45deg, transparent 48%, var(--star-light-pink) 49%, var(--star-light-pink) 51%, transparent 52%)
+    5.3rem 4.9rem / 2.9rem 2.9rem no-repeat,
+
+    /* darker magenta under-stroke for the X */
+    linear-gradient(45deg, transparent 46.5%, var(--star-cross-magenta) 47.5%, var(--star-cross-magenta) 52.5%, transparent 53.5%)
+    5.3rem 4.9rem / 2.9rem 2.9rem no-repeat,
+    linear-gradient(-45deg, transparent 46.5%, var(--star-cross-magenta) 47.5%, var(--star-cross-magenta) 52.5%, transparent 53.5%)
+    5.3rem 4.9rem / 2.9rem 2.9rem no-repeat,
+
+    /* dark purple square center */
+    linear-gradient(var(--star-dark-purple), var(--star-dark-purple))
+    5.3rem 4.9rem / 2.9rem 2.9rem no-repeat,
+
+    /* black border behind the square */
+    linear-gradient(#151015, #151015)
+    5rem 4.6rem / 3.5rem 3.5rem no-repeat,
+
+    /* other streamer squares */
+    linear-gradient(var(--star-cyan), var(--star-cyan))
+    0 0 / 3.3rem 3.3rem no-repeat,
+    linear-gradient(var(--star-purple), var(--star-purple))
+    2.1rem 2.1rem / 3.8rem 1.15rem no-repeat,
+    linear-gradient(var(--star-cyan), var(--star-cyan))
+    7.2rem 7.2rem / 2.4rem 2.4rem no-repeat;
+
+    filter:
+    drop-shadow(0 0 10px rgba(39, 244, 255, 0.45))
+    drop-shadow(0 0 12px rgba(255, 43, 214, 0.35));
+    transform: rotate(-7deg);
+}
+
+.page-header,
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Big title */
+.page-header h1 {
+    color: var(--star-white);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    text-shadow:
+    3px 0 0 var(--star-hot-pink),
+    -3px 0 0 var(--star-cyan),
+    0 0 18px rgba(255, 43, 214, 0.38);
+}
+
+/* Character label */
+.page-header h1::after {
+    content: "STARGIRL_99  /  DETECTION  /  RANGED KILLER";
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 0.9rem;
+    padding: 0.45rem 0.8rem;
+    border: 2px solid var(--star-white);
+    border-radius: 999px;
+    color: var(--star-white);
+    background:
+    linear-gradient(90deg, rgba(255, 43, 214, 0.55), rgba(39, 244, 255, 0.32));
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+    line-height: 1.45;
+    text-shadow: none;
+    box-shadow:
+    0 0 14px rgba(255, 43, 214, 0.34),
+    inset 0 0 16px rgba(255, 255, 255, 0.08);
+}
+
+/* Top metadata pills */
+.eyebrow span,
+.tags li {
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    color: var(--star-white);
+    background:
+    linear-gradient(90deg, rgba(255, 43, 214, 0.46), rgba(39, 244, 255, 0.28));
+    box-shadow: 0 0 12px rgba(255, 43, 214, 0.22);
+}
+
+/* Page description */
+.page-description {
+    color: #ffd9f7;
+    font-weight: 700;
+}
+
+/* Section headers: like ability-card text */
+.page-content h2,
+.page-content h3 {
+    color: var(--star-white);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-shadow:
+    2px 0 0 rgba(255, 43, 214, 0.75),
+    -2px 0 0 rgba(39, 244, 255, 0.65);
+}
+
+.page-content h2 {
+    padding-bottom: 0.55rem;
+    border-bottom: 0.38rem solid var(--star-white);
+}
+
+/* Paragraphs */
+.page-content p {
+    color: #fff1fb;
+    font-weight: 650;
+}
+
+/* Links */
+.page-content a {
+    color: var(--star-cyan);
+    font-weight: 900;
+    text-decoration-color: var(--star-hot-pink);
+    text-decoration-thickness: 2px;
+}
+
+.page-content a:hover {
+    color: var(--star-hot-pink);
+    text-shadow: 0 0 10px rgba(255, 43, 214, 0.7);
+}
+
+/* Tables for ability kit */
+.page-content table {
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.72);
+    background: rgba(10, 0, 8, 0.68);
+    box-shadow:
+    0 0 18px rgba(255, 43, 214, 0.2),
+    0 0 30px rgba(39, 244, 255, 0.1);
+}
+
+.page-content th {
+    color: var(--star-white);
+    background:
+    linear-gradient(90deg, var(--star-hot-pink), var(--star-purple));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.page-content td {
+    color: #ffeafd;
+    background:
+    linear-gradient(90deg, rgba(255, 43, 214, 0.12), rgba(39, 244, 255, 0.08));
+}
+
+.page-content tr:hover td {
+    background:
+    linear-gradient(90deg, rgba(255, 43, 214, 0.22), rgba(39, 244, 255, 0.16));
+}
+
+/* Bullet points */
+.page-content li::marker {
+    color: var(--star-hot-pink);
+}
+
+.page-content li {
+    color: #fff1fb;
+    font-weight: 650;
+}
+
+/* Images: good if you add her render or ability card */
+.page-content img {
+    border: 0.55rem solid var(--star-white);
+    border-radius: 28px;
+    background: var(--star-black);
+    box-shadow:
+    0 0 0 3px var(--star-hot-pink),
+    0 0 24px rgba(255, 43, 214, 0.42),
+    0 0 38px rgba(39, 244, 255, 0.24),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Missing lore links */
+.missing-link {
+    color: #ff8fe9;
+    border-bottom: 2px dashed var(--star-cyan);
+    font-weight: 900;
+    text-shadow:
+    1px 0 0 var(--star-hot-pink),
+    -1px 0 0 var(--star-cyan);
+}
+
+/* Optional: make ability sections feel like red info-card panels */
+.page-content h2 + p,
+.page-content h3 + p {
+    padding: 1rem;
+    border-left: 0.45rem solid var(--star-hot-pink);
+    border-radius: 0 14px 14px 0;
+    background:
+    linear-gradient(90deg, rgba(255, 43, 214, 0.18), rgba(184, 19, 8, 0.16));
+}
+
+/* Click sparkles from script.js */
+.click-sparkle {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    translate: -50% -50%;
+
+    background:
+    linear-gradient(var(--star-cyan), var(--star-cyan)) center / 100% 24% no-repeat,
+    linear-gradient(var(--star-hot-pink), var(--star-hot-pink)) center / 24% 100% no-repeat;
+
+    filter:
+    drop-shadow(0 0 6px var(--star-cyan))
+    drop-shadow(0 0 10px var(--star-hot-pink));
+
+    animation: stargirl-sparkle-pop 750ms ease-out forwards;
+}
+
+@keyframes stargirl-sparkle-pop {
+    0% {
+        opacity: 0;
+        transform:
+        translate(0, 0)
+        rotate(var(--sparkle-rotation))
+        scale(0.15);
+    }
+
+    20% {
+        opacity: 1;
+        transform:
+        translate(0, 0)
+        rotate(var(--sparkle-rotation))
+        scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+        translate(var(--sparkle-drift-x), var(--sparkle-drift-y))
+        rotate(var(--sparkle-rotation))
+        scale(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+    .page-card::after {
+        opacity: 0.32;
+        right: -2rem;
+    }
+
+    .page-header h1::after {
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .click-sparkle {
+        display: none;
+    }
+}
