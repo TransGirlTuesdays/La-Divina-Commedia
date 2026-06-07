@@ -1,5 +1,5 @@
 ---
-title: The cowboy/Ryder
+title: The cowboy, Ryder
 kind: character
 role: killer
 status: draft

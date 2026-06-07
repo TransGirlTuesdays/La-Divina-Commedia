@@ -1,5 +1,5 @@
 ---
-title: The wilted
+title: The Wilted
 kind: character
 role: killer
 status: draft
